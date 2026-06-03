@@ -51,7 +51,7 @@
 
       <video
         id="waterVideo"
-        src="assets/videos/water-loop.mp4"
+        src="assets/assets/videos/water-loop.mp4"
         preload="auto"
         loop
         muted
@@ -74,20 +74,20 @@
       material="color: red;">
     </a-box>
 
-    <!-- LARGE WATER VIDEO FLOOR -->
+    <!-- WATER VIDEO FLOOR -->
 
     <a-plane
+      position="0 -35 -120"
+      rotation="-90 0 0"
+      width="220"
+      height="420"
       material="
         src: #waterVideo;
         shader: flat;
         side: double;
         transparent: true;
-        opacity: 0.85;
-      "
-      position="0 -35 -120"
-      rotation="-90 0 0"
-      width="220"
-      height="420">
+        opacity: 0.9;
+      ">
     </a-plane>
 
   </a-scene>
@@ -124,5 +124,7 @@
   </script>
 
 </body>
+
+</html>
 
 </html>
