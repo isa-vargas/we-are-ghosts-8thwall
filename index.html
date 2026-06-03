@@ -16,17 +16,17 @@
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
-  <script>
-    AFRAME.registerComponent("slow-scroll-water", {
-      tick: function (time) {
-        const mesh = this.el.getObject3D("mesh");
+<script>
+  AFRAME.registerComponent("slow-scroll-water", {
+    tick: function (time) {
+      const mesh = this.el.getObject3D("mesh");
 
-        if (mesh && mesh.material && mesh.material.map) {
-          mesh.material.map.offset.y = time * 0.00002;
-        }
+      if (mesh && mesh.material && mesh.material.map) {
+        mesh.material.map.offset.x = time * 0.00015;
       }
-    });
-  </script>
+    }
+  });
+</script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
