@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>We Are Ghosts 8th Wall</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script
@@ -28,6 +27,7 @@
 
     <a-assets>
       <img id="waterOne" src="assets/images/water-1.jpg">
+      <img id="waterTwo" src="assets/images/water-2.jpg">
     </a-assets>
 
     <a-camera position="0 1.6 0"></a-camera>
@@ -39,35 +39,79 @@
       material="color: red;">
     </a-box>
 
-    <!-- STATIC OCEAN GRID -->
+    <!-- LOWER WATER LAYER / WATER 2 -->
+    <a-plane position="-154 -35.3 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <a-plane position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35.3 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <a-plane position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35.3 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <a-plane position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35.3 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35.3 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <!-- EXTRA FRONT ROW 1 -->
-    <a-plane position="-77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35.3 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="-77 -35.3 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="0 -35.3 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="77 -35.3 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
+    <a-plane position="154 -35.3 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; transparent: true; opacity: 0.35;"></a-plane>
 
-    <!-- EXTRA FRONT ROW 2 -->
-    <a-plane position="-77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <!-- TOP WATER LAYER / WATER 1 -->
+    <a-plane position="-154 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
 
-    <!-- EXTRA FRONT ROW 3 -->
-    <a-plane position="-77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-154 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+
+    <a-plane position="-154 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+
+    <a-plane position="-154 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+
+    <a-plane position="-154 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+
+    <a-plane position="-154 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="-77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="0 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
+    <a-plane position="154 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
 
   </a-scene>
 
