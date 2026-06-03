@@ -16,17 +16,18 @@
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
-<script>
-  AFRAME.registerComponent("slow-scroll-water", {
-    tick: function (time) {
-      const mesh = this.el.getObject3D("mesh");
+  <!-- One soft moving overlay only -->
+  <script>
+    AFRAME.registerComponent("slow-scroll-water", {
+      tick: function (time) {
+        const mesh = this.el.getObject3D("mesh");
 
-      if (mesh && mesh.material && mesh.material.map) {
-        mesh.material.map.offset.x = time * 0.00015;
+        if (mesh && mesh.material && mesh.material.map) {
+          mesh.material.map.offset.x = time * 0.00015;
+        }
       }
-    }
-  });
-</script>
+    });
+  </script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -51,35 +52,45 @@
       material="color: red;">
     </a-box>
 
-    <!-- OCEAN GRID WITH SOFT OPACITY + SLOW SCROLL -->
+    <!-- STATIC OCEAN GRID -->
 
-    <a-plane slow-scroll-water position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
-    <a-plane slow-scroll-water position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
-    <a-plane slow-scroll-water position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
-    <a-plane slow-scroll-water position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
     <!-- EXTRA FRONT ROW 1 -->
-    <a-plane slow-scroll-water position="-77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="0 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
     <!-- EXTRA FRONT ROW 2 -->
-    <a-plane slow-scroll-water position="-77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="0 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
 
     <!-- EXTRA FRONT ROW 3 -->
-    <a-plane slow-scroll-water position="-77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="0 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane slow-scroll-water position="77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="-77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="0 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane position="77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+
+    <!-- SOFT MOVING WATER OVERLAY -->
+    <a-plane
+      slow-scroll-water
+      position="0 -34.8 -157"
+      rotation="-90 0 0"
+      width="231"
+      height="385"
+      material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.22;">
+    </a-plane>
 
   </a-scene>
 
