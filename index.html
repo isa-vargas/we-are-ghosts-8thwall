@@ -7,6 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- 8th Wall -->
   <script
     src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js"
     async
@@ -14,10 +15,28 @@
     data-preload-chunks="slam">
   </script>
 
+  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
 </head>
 
 <body style="margin: 0; overflow: hidden;">
+
+  <!-- START BUTTON -->
+
+  <button
+    id="startButton"
+    style="
+      position: fixed;
+      z-index: 9999;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 14px 22px;
+      font-size: 16px;
+    ">
+    Start Experience
+  </button>
 
   <a-scene
     xrweb
@@ -26,50 +45,83 @@
     renderer="colorManagement: true;"
   >
 
+    <!-- ASSETS -->
+
     <a-assets>
-      <img id="waterOne" src="assets/images/water-1.jpg">
+
+      <video
+        id="waterVideo"
+        src="assets/videos/water-loop.mp4"
+        preload="auto"
+        loop
+        muted
+        playsinline
+        webkit-playsinline
+        crossorigin="anonymous">
+      </video>
+
     </a-assets>
+
+    <!-- CAMERA -->
 
     <a-camera position="0 1.6 0"></a-camera>
 
     <!-- TEST CUBE -->
+
     <a-box
       position="0 0 -3"
       scale="0.6 0.6 0.6"
       material="color: red;">
     </a-box>
 
-    <!-- STATIC OCEAN GRID -->
+    <!-- LARGE WATER VIDEO FLOOR -->
 
-    <a-plane position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <a-plane position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <a-plane position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <!-- EXTRA FRONT ROW 1 -->
-    <a-plane position="-77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -157" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <!-- EXTRA FRONT ROW 2 -->
-    <a-plane position="-77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -234" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-
-    <!-- EXTRA FRONT ROW 3 -->
-    <a-plane position="-77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="0 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
-    <a-plane position="77 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.65;"></a-plane>
+    <a-plane
+      material="
+        src: #waterVideo;
+        shader: flat;
+        side: double;
+        transparent: true;
+        opacity: 0.85;
+      "
+      position="0 -35 -120"
+      rotation="-90 0 0"
+      width="220"
+      height="420">
+    </a-plane>
 
   </a-scene>
+
+  <script>
+
+    const button = document.querySelector("#startButton");
+    const waterVideo = document.querySelector("#waterVideo");
+
+    button.addEventListener("click", async function () {
+
+      try {
+
+        waterVideo.muted = true;
+        waterVideo.playsInline = true;
+        waterVideo.currentTime = 0;
+
+        await waterVideo.play();
+
+        button.style.display = "none";
+
+        console.log("Water video playing");
+
+      } catch (error) {
+
+        console.log("Playback failed:", error);
+
+        button.innerText = "Tap Again";
+
+      }
+
+    });
+
+  </script>
 
 </body>
 
