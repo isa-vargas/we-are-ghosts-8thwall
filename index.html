@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>We Are Ghosts 8th Wall Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js"
+    async
+    crossorigin="anonymous"
+    data-preload-chunks="slam">
+  </script>
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+
+  <a-scene
+    xrweb
+    xrextras-runtime-error
+    xrextras-loading
+    renderer="colorManagement: true;"
+  >
+
+    <a-camera position="0 1.6 0"></a-camera>
+
+    <a-box
+      position="0 0 -2"
+      scale="0.4 0.4 0.4"
+      material="color: red;">
+    </a-box>
+
+  </a-scene>
+
+</body>
+</html>
