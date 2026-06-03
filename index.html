@@ -5,12 +5,8 @@
   <meta charset="utf-8">
   <title>We Are Ghosts 8th Wall</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 8th Wall -->
   <script
     src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js"
     async
@@ -18,35 +14,7 @@
     data-preload-chunks="slam">
   </script>
 
-  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-
-  <!-- REPEATING WATER TEXTURE -->
-  <script>
-    AFRAME.registerComponent('repeat-texture', {
-      init: function () {
-
-        this.el.addEventListener('materialtextureloaded', () => {
-
-          const mesh = this.el.getObject3D('mesh');
-
-          if (mesh && mesh.material && mesh.material.map) {
-
-            mesh.material.map.wrapS = THREE.RepeatWrapping;
-            mesh.material.map.wrapT = THREE.RepeatWrapping;
-
-            mesh.material.map.repeat.set(3, 3);
-
-            mesh.material.map.needsUpdate = true;
-
-          }
-
-        });
-
-      }
-    });
-  </script>
-
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -58,43 +26,33 @@
     renderer="colorManagement: true;"
   >
 
-    <!-- ASSETS -->
-
     <a-assets>
-
-      <img
-        id="waterOne"
-        src="assets/images/water-1.jpg"
-      >
-
+      <img id="waterOne" src="assets/images/water-1.jpg">
     </a-assets>
-
-    <!-- CAMERA -->
 
     <a-camera position="0 1.6 0"></a-camera>
 
     <!-- TEST CUBE -->
-
     <a-box
       position="0 0 -3"
       scale="0.6 0.6 0.6"
       material="color: red;">
     </a-box>
 
-    <!-- ENDLESS WATER -->
+    <!-- OCEAN GRID -->
 
-    <a-plane
-      position="0 -35 -3"
-      rotation="-90 0 0"
-      width="77"
-      height="77"
-      repeat-texture
-      material="
-        src: #waterOne;
-        shader: flat;
-        side: double;
-      ">
-    </a-plane>
+    <a-plane position="0 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+    <a-plane position="0 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+    <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+
+    <a-plane position="-77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+    <a-plane position="77 -35 -3" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+
+    <a-plane position="-77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+    <a-plane position="77 -35 -80" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+
+    <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
+    <a-plane position="77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double;"></a-plane>
 
   </a-scene>
 
