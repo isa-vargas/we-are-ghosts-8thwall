@@ -21,6 +21,23 @@
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
+  <!-- OCEAN SCROLL -->
+  <script>
+    AFRAME.registerComponent("scroll-ocean", {
+      tick: function (time) {
+
+        const mesh = this.el.getObject3D("mesh");
+
+        if (mesh && mesh.material && mesh.material.map) {
+
+          mesh.material.map.offset.y = time * 0.00005;
+
+        }
+
+      }
+    });
+  </script>
+
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -58,6 +75,7 @@
     <!-- LARGE SINGLE OCEAN -->
 
     <a-plane
+      scroll-ocean
       position="0 -42 -160"
       rotation="-90 0 0"
       width="420"
