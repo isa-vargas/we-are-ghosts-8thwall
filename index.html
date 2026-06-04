@@ -21,22 +21,21 @@
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
-  <!-- OCEAN SCROLL -->
-  <script>
-    AFRAME.registerComponent("scroll-ocean", {
-      tick: function (time) {
+<script>
+  AFRAME.registerComponent("scroll-ocean", {
+    tick: function (time) {
 
-        const mesh = this.el.getObject3D("mesh");
+      const mesh = this.el.getObject3D("mesh");
 
-        if (mesh && mesh.material && mesh.material.map) {
+      if (mesh && mesh.material && mesh.material.map) {
 
-          mesh.material.map.offset.y = time * 0.00005;
-
-        }
+        mesh.material.map.offset.x = time * 0.00025;
 
       }
-    });
-  </script>
+
+    }
+  });
+</script>
 
 </head>
 
