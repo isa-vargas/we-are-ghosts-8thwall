@@ -19,17 +19,13 @@
 
 <a-scene xrweb xrextras-runtime-error xrextras-loading renderer="colorManagement: true;">
 
-  <a-assets>
-    <img id="waterOne" src="assets/images/water-1.jpg">
-    <img id="waterTwo" src="assets/images/water-2.jpg">
-      <img id="glassTexture" src="assets/images/glass.png">
+<a-assets>
+  <img id="waterOne" src="assets/images/water-1.jpg">
+  <img id="waterTwo" src="assets/images/water-2.jpg">
+  <img id="glassTexture" src="assets/images/glass.png">
 
-    <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
   <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
-  
-
-    </a-assets>
-
+</a-assets>
   <a-camera position="0 1.6 0"></a-camera>
 
   <!-- TEST CUBE -->
@@ -39,8 +35,7 @@
 <a-entity
   gltf-model="#flowerModel"
   position="-6 -1 -3"
-  scale="30 30 30"
-  material="src: #glassTexture; transparent: true; opacity: 0.75;">
+  scale="30 30 30">
 </a-entity>
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
