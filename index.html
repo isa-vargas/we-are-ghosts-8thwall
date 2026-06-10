@@ -13,6 +13,32 @@
   </script>
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+  <script>
+  AFRAME.registerComponent("apply-glass-texture", {
+    init: function () {
+      const el = this.el;
+
+      el.addEventListener("model-loaded", function () {
+        const texture = new THREE.TextureLoader().load("assets/images/glass.png");
+
+        el.object3D.traverse(function (node) {
+          if (node.isMesh) {
+            node.material = new THREE.MeshStandardMaterial({
+              map: texture,
+              transparent: true,
+              opacity: 0.75,
+              roughness: 0.15,
+              metalness: 0.05
+            });
+
+            node.material.needsUpdate = true;
+          }
+        });
+      });
+    }
+  });
+</script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -34,6 +60,7 @@
 <!-- FLOWER MODEL -->
 <a-entity
   gltf-model="#flowerModel"
+  apply-glass-texture
   position="-100 -3 -8"
   scale="30 30 30">
 </a-entity>
