@@ -70,9 +70,9 @@
   <!-- VIDEO REPLACING CUBE -->
 <a-video
   src="#interviewVideo"
-  position="0 0 -8"
+  position="0 0 -12"
   width="4"
-  height="2.25">
+  height="3.375">
 </a-video>
 
   <!-- FLOWER MODELS -->
@@ -173,10 +173,11 @@ window.addEventListener("load", () => {
 
   const startVideo = async () => {
     try {
-      video.muted = true;
+      video.muted = false;
+      video.volume = 1.0;
       video.playsInline = true;
       await video.play();
-      console.log("Video started");
+      console.log("Video with audio started");
     } catch (e) {
       console.error("Video failed:", e);
     }
