@@ -52,14 +52,14 @@
 
 <video
   id="interviewVideo"
-  src="assets/videos/interview.mp4"
+  src="assets/videos/inter.mp4"
   preload="auto"
   autoplay
   loop
   muted
+  crossorigin="anonymous"
   playsinline
-  webkit-playsinline
-  crossorigin="anonymous">
+  webkit-playsinline>
 </video>
 
   <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
@@ -68,12 +68,12 @@
   <a-camera position="0 1.6 0"></a-camera>
 
   <!-- VIDEO REPLACING CUBE -->
- <a-plane
-  material="src: #interviewVideo; shader: flat; side: double;"
+<a-video
+  src="#interviewVideo"
   position="0 0 -8"
   width="4"
   height="2.25">
-</a-plane>
+</a-video>
 
   <!-- FLOWER MODELS -->
   <a-entity
@@ -168,16 +168,23 @@
 </a-scene>
 
 <script>
-window.addEventListener("click", async function () {
+window.addEventListener("load", () => {
   const video = document.querySelector("#interviewVideo");
 
-  try {
-    await video.play();
-    console.log("Video playing");
-  } catch (e) {
-    console.error(e);
-  }
-}, { once: true });
+  const startVideo = async () => {
+    try {
+      video.muted = true;
+      video.playsInline = true;
+      await video.play();
+      console.log("Video started");
+    } catch (e) {
+      console.error("Video failed:", e);
+    }
+  };
+
+  document.body.addEventListener("touchstart", startVideo, { once: true });
+  document.body.addEventListener("click", startVideo, { once: true });
+});
 </script>
 
 </body>
