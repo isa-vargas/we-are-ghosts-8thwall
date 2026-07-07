@@ -50,12 +50,26 @@
   <img id="waterTwo" src="assets/images/water-2.jpg">
   <img id="glassTexture" src="assets/images/glass.png">
 
+<video
+  id="montageVideo"
+  src="assets/videos/montage.mp4"
+  preload="auto"
+  loop
+  muted
+  playsinline
+  webkit-playsinline>
+</video>
+
   <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
 </a-assets>
   <a-camera position="0 1.6 0"></a-camera>
 
-  <!-- TEST CUBE -->
-  <a-box position="0 0 -3" scale="0.6 0.6 0.6" material="color: red;"></a-box>
+ <a-plane
+  material="src: #montageVideo; shader: flat; side: double;"
+  position="0 0 -8"
+  width="4"
+  height="2.25">
+</a-plane>
 
 <!-- FLOWER MODEL -->
 <a-entity
@@ -148,6 +162,13 @@
   <a-plane position="154 -35 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
 
 </a-scene>
+
+  <script>
+  window.addEventListener("click", function () {
+    const video = document.querySelector("#montageVideo");
+    if (video) video.play();
+  }, { once: true });
+</script>
 
 </body>
 </html>
