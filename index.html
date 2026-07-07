@@ -49,6 +49,7 @@
   <img id="waterOne" src="assets/images/water-1.jpg">
   <img id="waterTwo" src="assets/images/water-2.jpg">
   <img id="glassTexture" src="assets/images/glass.png">
+  <img id="patternTexture" src="assets/images/pattern.jpeg">
 
 <video
   id="interviewVideo"
@@ -67,6 +68,18 @@
 
   <a-camera position="0 1.6 0"></a-camera>
 
+  <a-plane
+  src="#patternTexture"
+  position="0 0 -12.05"
+  rotation="0 0 0"
+  width="5"
+  height="4.2"
+  material="
+    shader: flat;
+    side: double;
+    transparent: true;
+    opacity: 1;">
+</a-plane>
   <!-- VIDEO REPLACING CUBE -->
 <a-video
   src="#interviewVideo"
