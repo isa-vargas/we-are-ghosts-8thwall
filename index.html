@@ -15,30 +15,30 @@
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
   <script>
-  AFRAME.registerComponent("apply-glass-texture", {
-    init: function () {
-      const el = this.el;
+    AFRAME.registerComponent("apply-glass-texture", {
+      init: function () {
+        const el = this.el;
 
-      el.addEventListener("model-loaded", function () {
-        const texture = new THREE.TextureLoader().load("assets/images/glass.png");
+        el.addEventListener("model-loaded", function () {
+          const texture = new THREE.TextureLoader().load("assets/images/glass.png");
 
-        el.object3D.traverse(function (node) {
-          if (node.isMesh) {
-            node.material = new THREE.MeshStandardMaterial({
-              map: texture,
-              transparent: true,
-              opacity: 0.45,
-              roughness: 0.03,
-              metalness: 0.05
-            });
+          el.object3D.traverse(function (node) {
+            if (node.isMesh) {
+              node.material = new THREE.MeshStandardMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.45,
+                roughness: 0.03,
+                metalness: 0.05
+              });
 
-            node.material.needsUpdate = true;
-          }
+              node.material.needsUpdate = true;
+            }
+          });
         });
-      });
-    }
-  });
-</script>
+      }
+    });
+  </script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -50,45 +50,44 @@
   <img id="waterTwo" src="assets/images/water-2.jpg">
   <img id="glassTexture" src="assets/images/glass.png">
 
-<a-plane
-  id="videoPlane"
-  material="src: #montageVideo; shader: flat; side: double;"
-  position="0 0 -8"
-  width="4"
-  height="2.25">
-</a-plane>
+  <video
+    id="montageVideo"
+    src="assets/videos/montage.mp4"
+    preload="auto"
+    loop
+    muted
+    playsinline
+    webkit-playsinline>
+  </video>
 
   <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
 </a-assets>
+
   <a-camera position="0 1.6 0"></a-camera>
 
-<video
-  id="montageVideo"
-  src="assets/videos/montage.mp4"
-  preload="auto"
-  loop
-  muted
-  autoplay
-  playsinline
-  webkit-playsinline
-  crossorigin="anonymous">
-</video>
+  <!-- VIDEO REPLACING CUBE -->
+  <a-plane
+    material="src: #montageVideo; shader: flat; side: double;"
+    position="0 0 -8"
+    width="4"
+    height="2.25">
+  </a-plane>
 
-<!-- FLOWER MODEL -->
-<a-entity
-  gltf-model="#flowerModel"
-  apply-glass-texture
-  position="-150 -3 -20"
-  scale="30 30 30">
-</a-entity>
-<a-entity
-  gltf-model="#flowerModel"
-  apply-glass-texture
-  position="-100 -3 -10"
-  scale="30 30 30
-  rotation="0 90 0">
-</a-entity>
+  <!-- FLOWER MODELS -->
+  <a-entity
+    gltf-model="#flowerModel"
+    apply-glass-texture
+    position="-150 -3 -20"
+    scale="30 30 30">
+  </a-entity>
 
+  <a-entity
+    gltf-model="#flowerModel"
+    apply-glass-texture
+    position="-100 -3 -10"
+    scale="30 30 30"
+    rotation="0 90 0">
+  </a-entity>
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
   <a-plane position="-154 -35.6 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; opacity: 1;"></a-plane>
@@ -167,22 +166,12 @@
 </a-scene>
 
 <script>
-  const video = document.querySelector("#montageVideo");
-
-  async function startVideo() {
-    try {
-      video.muted = true;
-      video.playsInline = true;
-      video.currentTime = 0;
-      await video.play();
-      console.log("Video playing");
-    } catch (err) {
-      console.log("Video failed:", err);
+  window.addEventListener("click", function () {
+    const video = document.querySelector("#montageVideo");
+    if (video) {
+      video.play();
     }
-  }
-
-  window.addEventListener("click", startVideo);
-  window.addEventListener("touchstart", startVideo);
+  }, { once: true });
 </script>
 
 </body>
