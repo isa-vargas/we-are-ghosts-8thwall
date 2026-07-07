@@ -64,12 +64,13 @@
 </a-assets>
   <a-camera position="0 1.6 0"></a-camera>
 
- <a-plane
-  material="src: #montageVideo; shader: flat; side: double;"
+<a-video
+  src="#montageVideo"
   position="0 0 -8"
   width="4"
-  height="2.25">
-</a-plane>
+  height="2.25"
+  material="shader: flat; side: double;">
+</a-video>
 
 <!-- FLOWER MODEL -->
 <a-entity
@@ -83,7 +84,7 @@
   apply-glass-texture
   position="-100 -3 -10"
   scale="30 30 30
-  rotation="0 90 0"">
+  rotation="0 90 0">
 </a-entity>
 
 
