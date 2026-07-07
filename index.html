@@ -50,27 +50,29 @@
   <img id="waterTwo" src="assets/images/water-2.jpg">
   <img id="glassTexture" src="assets/images/glass.png">
 
+<a-plane
+  id="videoPlane"
+  material="src: #montageVideo; shader: flat; side: double;"
+  position="0 0 -8"
+  width="4"
+  height="2.25">
+</a-plane>
+
+  <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
+</a-assets>
+  <a-camera position="0 1.6 0"></a-camera>
+
 <video
   id="montageVideo"
   src="assets/videos/montage.mp4"
   preload="auto"
   loop
   muted
+  autoplay
   playsinline
-  webkit-playsinline>
+  webkit-playsinline
+  crossorigin="anonymous">
 </video>
-
-  <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
-</a-assets>
-  <a-camera position="0 1.6 0"></a-camera>
-
-<a-video
-  src="#montageVideo"
-  position="0 0 -8"
-  width="4"
-  height="2.25"
-  material="shader: flat; side: double;">
-</a-video>
 
 <!-- FLOWER MODEL -->
 <a-entity
@@ -164,11 +166,23 @@
 
 </a-scene>
 
-  <script>
-  window.addEventListener("click", function () {
-    const video = document.querySelector("#montageVideo");
-    if (video) video.play();
-  }, { once: true });
+<script>
+  const video = document.querySelector("#montageVideo");
+
+  async function startVideo() {
+    try {
+      video.muted = true;
+      video.playsInline = true;
+      video.currentTime = 0;
+      await video.play();
+      console.log("Video playing");
+    } catch (err) {
+      console.log("Video failed:", err);
+    }
+  }
+
+  window.addEventListener("click", startVideo);
+  window.addEventListener("touchstart", startVideo);
 </script>
 
 </body>
