@@ -91,10 +91,9 @@
   <!-- MAIN VIDEO PATTERN FRAME -->
   <a-plane
     src="#patternTexture"
-    position="0 0 -4.55"
-    rotation="0 0 0"
-    width="5"
-    height="4.2"
+    position="0 0 -5.85"
+width="4.6"
+height="3.85"
     material="
       shader: flat;
       side: double;
@@ -105,39 +104,36 @@
   <!-- MAIN INTERVIEW VIDEO -->
   <a-video
     src="#interviewVideo"
-    position="0 0 -4.5"
-    width="4"
-    height="3.375">
+   position="0 0 -5.8"
+width="3.6"
+height="3.0375">
   </a-video>
 
   <!-- SECOND ANIMATED VIDEO -->
   <a-video
     src="#animatedVideo"
-    position="2.5 0 -7"
-    rotation="0 -20 0"
-    width="3"
-    height="2.531">
+    position="5.5 0 -6.5"
+rotation="0 -25 0"
+width="2.8"
+height="2.36">
   </a-video>
 
   <!-- FLOWER MODELS ARRANGED AROUND THE VIDEOS -->
 
-  <!-- Flower on the left side of the main video -->
-  <a-entity
-    gltf-model="#flowerModel"
-    apply-glass-texture
-    position="-3.5 -1.5 -5.5"
-    scale="10 10 10"
-    rotation="0 25 0">
-  </a-entity>
+<a-entity
+  gltf-model="#flowerModel"
+  apply-glass-texture
+  position="-80 -3 -20"
+  scale="30 30 30">
+</a-entity>
 
-  <!-- Flower between the main and second videos -->
-  <a-entity
-    gltf-model="#flowerModel"
-    apply-glass-texture
-    position="2.5 -1.5 -5.5"
-    scale="10 10 10"
-    rotation="0 90 0">
-  </a-entity>
+<a-entity
+  gltf-model="#flowerModel"
+  apply-glass-texture
+  position="-30 -3 -10"
+  scale="30 30 30"
+  rotation="0 90 0">
+</a-entity>
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
 
