@@ -90,12 +90,12 @@
     </a-asset-item>
   </a-assets>
 
-  <a-camera position="0 1.6 0"></a-camera>
+<a-camera position="0 -24 0"></a-camera>
 
   <!-- MAIN VIDEO PATTERN FRAME -->
- <a-plane
+<a-plane
   src="#patternTexture"
-  position="0 0 -6.6"
+  position="0 -30 -6.6"
   width="4.3"
   height="3.6"
   material="
@@ -108,7 +108,7 @@
   <!-- MAIN INTERVIEW VIDEO -->
 <a-video
   src="#interviewVideo"
-  position="0 0 -6.5"
+  position="0 -30 -6.5"
   width="3.4"
   height="2.87">
 </a-video>
@@ -116,7 +116,7 @@
   <!-- SECOND ANIMATED VIDEO -->
 <a-video
   src="#animatedVideo"
-  position="6.2 0 -7.2"
+  position="6.2 -30 -7.2"
   rotation="0 -55 0"
   width="2.9"
   height="2.45">
@@ -127,33 +127,32 @@
 <a-entity
   gltf-model="#flowerModel"
   apply-glass-texture
-  position="4.5 -10 -5.6"
-  scale="150 150 150"
-  rotation="0 35 0">
+  position="2.5 -33 -5.8"
+  scale="180 180 180"
+  rotation="0 30 0">
 </a-entity>
 
 <a-entity
   gltf-model="#flowerModel"
   apply-glass-texture
-  position="1.2 -10 -5.9"
-  scale="150 150 150"
-  rotation="0 125 0">
+  position="5.4 -33 -5.6"
+  scale="180 180 180"
+  rotation="0 120 0">
 </a-entity>
 
-<!-- POSITION THIS PARENT BETWEEN THE TWO VIDEOS -->
 <a-entity
   id="lotusPosition"
-  position="8 -10 -10"
+  position="3.8 -33 -8"
   rotation="0 20 0">
 
-  <!-- MODEL SCALE / INTERNAL OFFSET -->
   <a-entity
     gltf-model="#lotusplate"
-    position="0 0 0"
-    scale="90 90 90">
+    scale="50 50 50">
   </a-entity>
 
 </a-entity>
+
+
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
 
