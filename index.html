@@ -20,7 +20,9 @@
         const el = this.el;
 
         el.addEventListener("model-loaded", function () {
-          const texture = new THREE.TextureLoader().load("assets/images/glass.png");
+          const texture = new THREE.TextureLoader().load(
+            "assets/images/glass.png"
+          );
 
           el.object3D.traverse(function (node) {
             if (node.isMesh) {
@@ -43,87 +45,102 @@
 
 <body style="margin: 0; overflow: hidden;">
 
-<a-scene xrweb xrextras-runtime-error xrextras-loading renderer="colorManagement: true;">
+<a-scene
+  xrweb
+  xrextras-runtime-error
+  xrextras-loading
+  renderer="colorManagement: true;">
 
-<a-assets>
-  <img id="waterOne" src="assets/images/water-1.jpg">
-  <img id="waterTwo" src="assets/images/water-2.jpg">
-  <img id="glassTexture" src="assets/images/glass.png">
-  <img id="patternTexture" src="assets/images/pattern.jpeg">
+  <a-assets>
+    <img id="waterOne" src="assets/images/water-1.jpg">
+    <img id="waterTwo" src="assets/images/water-2.jpg">
+    <img id="glassTexture" src="assets/images/glass.png">
+    <img id="patternTexture" src="assets/images/pattern.jpeg">
 
-<video
-  id="interviewVideo"
-  src="assets/videos/inter.mp4"
-  preload="auto"
-  autoplay
-  loop
-  muted
-  crossorigin="anonymous"
-  playsinline
-  webkit-playsinline>
-</video>
+    <video
+      id="interviewVideo"
+      src="assets/videos/inter.mp4"
+      preload="auto"
+      autoplay
+      loop
+      muted
+      crossorigin="anonymous"
+      playsinline
+      webkit-playsinline>
+    </video>
 
-<video
-  id="animatedVideo"
-  src="assets/videos/animated.mp4"
-  preload="auto"
-  loop
-  muted
-  playsinline
-  webkit-playsinline
-  crossorigin="anonymous">
-</video>
+    <video
+      id="animatedVideo"
+      src="assets/videos/animated.mp4"
+      preload="auto"
+      loop
+      muted
+      crossorigin="anonymous"
+      playsinline
+      webkit-playsinline>
+    </video>
 
-  <a-asset-item id="flowerModel" src="assets/models/flower2.glb"></a-asset-item>
-</a-assets>
+    <a-asset-item
+      id="flowerModel"
+      src="assets/models/flower2.glb">
+    </a-asset-item>
+  </a-assets>
 
   <a-camera position="0 1.6 0"></a-camera>
 
+  <!-- MAIN VIDEO PATTERN FRAME -->
   <a-plane
-  src="#patternTexture"
-  position="0 0 -12.05"
-  rotation="0 0 0"
-  width="5"
-  height="4.2"
-  material="
-    shader: flat;
-    side: double;
-    transparent: true;
-    opacity: 1;">
-</a-plane>
-  <!-- VIDEO REPLACING CUBE -->
-<a-video
-  src="#interviewVideo"
-  position="0 0 -12"
-  width="4"
-  height="3.375">
-</a-video>
+    src="#patternTexture"
+    position="0 0 -4.55"
+    rotation="0 0 0"
+    width="5"
+    height="4.2"
+    material="
+      shader: flat;
+      side: double;
+      transparent: true;
+      opacity: 1;">
+  </a-plane>
 
-<a-video
-  src="#animatedVideo"
-  position="8 0 -24"
-  rotation="0 -28 0"
-  width="2.4"
-  height="2.025">
-</a-video>
+  <!-- MAIN INTERVIEW VIDEO -->
+  <a-video
+    src="#interviewVideo"
+    position="0 0 -4.5"
+    width="4"
+    height="3.375">
+  </a-video>
 
-  <!-- FLOWER MODELS -->
+  <!-- SECOND ANIMATED VIDEO -->
+  <a-video
+    src="#animatedVideo"
+    position="2.5 0 -7"
+    rotation="0 -20 0"
+    width="3"
+    height="2.531">
+  </a-video>
+
+  <!-- FLOWER MODELS ARRANGED AROUND THE VIDEOS -->
+
+  <!-- Flower on the left side of the main video -->
   <a-entity
     gltf-model="#flowerModel"
     apply-glass-texture
-    position="-80 -3 -20"
-    scale="30 30 30">
+    position="-3.5 -1.5 -5.5"
+    scale="10 10 10"
+    rotation="0 25 0">
   </a-entity>
 
+  <!-- Flower between the main and second videos -->
   <a-entity
     gltf-model="#flowerModel"
     apply-glass-texture
-    position="-30 -3 -10"
-    scale="30 30 30"
+    position="2.5 -1.5 -5.5"
+    scale="10 10 10"
     rotation="0 90 0">
   </a-entity>
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
+
   <a-plane position="-154 -35.6 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; opacity: 1;"></a-plane>
   <a-plane position="-77 -35.6 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; opacity: 1;"></a-plane>
   <a-plane position="0 -35.6 74" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; opacity: 1;"></a-plane>
@@ -161,6 +178,7 @@
   <a-plane position="154 -35.6 -311" rotation="-90 0 0" width="77" height="77" material="src: #waterTwo; shader: flat; side: double; opacity: 1;"></a-plane>
 
   <!-- TOP WATER LAYER / WATER 1 / SOFT OVERLAY -->
+
   <a-plane position="-154 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
   <a-plane position="-77 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
   <a-plane position="0 -35 74" rotation="-90 0 0" width="77" height="77" material="src: #waterOne; shader: flat; side: double; transparent: true; opacity: 0.45;"></a-plane>
@@ -201,19 +219,19 @@
 
 <script>
 window.addEventListener("load", () => {
-
   const interview = document.querySelector("#interviewVideo");
   const animated = document.querySelector("#animatedVideo");
 
   const startVideos = async () => {
     try {
-      // Main interview video
+      // Main interview video with audio
       interview.muted = false;
       interview.volume = 1.0;
       interview.playsInline = true;
 
-      // Secondary animated video
+      // Secondary animated video without audio
       animated.muted = true;
+      animated.volume = 0;
       animated.playsInline = true;
 
       await Promise.all([
@@ -227,9 +245,17 @@ window.addEventListener("load", () => {
     }
   };
 
-  document.body.addEventListener("touchstart", startVideos, { once: true });
-  document.body.addEventListener("click", startVideos, { once: true });
+  document.body.addEventListener(
+    "touchstart",
+    startVideos,
+    { once: true }
+  );
 
+  document.body.addEventListener(
+    "click",
+    startVideos,
+    { once: true }
+  );
 });
 </script>
 
