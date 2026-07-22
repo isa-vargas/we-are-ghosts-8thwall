@@ -40,43 +40,8 @@
         });
       }
     });
-    AFRAME.registerComponent("apply-crystal-texture", {
-  init: function () {
-    const el = this.el;
-
-    el.addEventListener("model-loaded", function () {
-
-      const texture = new THREE.TextureLoader().load(
-        "assets/images/crystaltexture.png"
-      );
-
-      texture.flipY = false;
-
-      el.object3D.traverse(function (node) {
-
-        if (node.isMesh) {
-
-          node.material = new THREE.MeshStandardMaterial({
-            map: texture,
-            transparent: true,
-            opacity: 0.85,
-            roughness: 0.08,
-            metalness: 0.12
-          });
-
-          node.material.needsUpdate = true;
-
-        }
-
-      });
-
-    });
-
-  }
-});
   </script>
 </head>
-
 
 <body style="margin: 0; overflow: hidden;">
 
@@ -103,12 +68,7 @@
       playsinline
       webkit-playsinline>
     </video>
-<img id="crystalTexture" src="assets/images/crystaltexture.png">
 
-<a-asset-item
-    id="bbFlower"
-    src="assets/models/bb01.glb">
-</a-asset-item>
     <video
       id="animatedVideo"
       src="assets/videos/animatednew.mp4"
@@ -179,18 +139,27 @@
 
 </a-entity>
 
+
 <!-- RIGHT FLOWER BUNCH -->
 <a-entity
-  id="rightFlowerCluster"
-  position="1500 -25 -1"
-  rotation="0 0 0">
+    id=""rightFlowerCluster"
+    position="1500 -25 -1"
+    rotation="0 0 0">
+
+    <a-entity
+        gltf-model="#flowerModel"
+        apply-glass-texture
+        position="-2 0 0"
+        scale="28 28 28">
+    </a-entity>
+
+</a-entity>
 
   <a-entity
-    gltf-model="#flowerModel"
-    apply-glass-texture
-    position="-2 0 0"
-    scale="28 28 28">
-  </a-entity>
+  id="lotusPosition"
+  position="-20 -33 -30"
+  rotation="0 20 0">
+  
 <!-- ORIGINAL LOTUS -->
 <a-entity
   id="lotusOne"
@@ -209,7 +178,7 @@
   scale="385 385 385">
 </a-entity>
 
-<!-- THIRD LOTUS -->
+  <!-- THIRD LOTUS -->
 <a-entity
   id="lotusThree"
   gltf-model="#lotusplate"
@@ -235,16 +204,6 @@
   rotation="0 0 0"
   scale="310 310 310">
 </a-entity>
-
-<!-- CRYSTAL FLOWER -->
-
-<a-entity
- id="crystalFlower"
- gltf-model="#bbFlower"
- apply-crystal-texture
- position="-2 -31 -12"
- rotation="0 28 0"
- scale="150 150 150"></a-entity>
 
 
   <!-- LOWER WATER LAYER / WATER 2 / FULL OPACITY -->
