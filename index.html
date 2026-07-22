@@ -40,6 +40,35 @@
         });
       }
     });
+    AFRAME.registerComponent("apply-crystal-texture", {
+  init: function () {
+    const el = this.el;
+
+    el.addEventListener("model-loaded", function () {
+      const texture = new THREE.TextureLoader().load(
+        "assets/images/crystaltexture.png"
+      );
+
+      texture.flipY = false;
+      texture.colorSpace = THREE.SRGBColorSpace;
+
+      el.object3D.traverse(function (node) {
+        if (node.isMesh) {
+          node.material = new THREE.MeshStandardMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0.85,
+            roughness: 0.08,
+            metalness: 0.12,
+            side: THREE.DoubleSide
+          });
+
+          node.material.needsUpdate = true;
+        }
+      });
+    });
+  }
+});
   </script>
 </head>
 
@@ -88,6 +117,14 @@
       id="flowerModel"
       src="assets/models/flower2.glb">
     </a-asset-item>
+<img
+  id="crystalTexture"
+  src="assets/images/crystaltexture.png">
+
+<a-asset-item
+  id="bbFlowerModel"
+  src="assets/models/bb01.glb">
+</a-asset-item>
   </a-assets>
 
 <a-camera position="-0.5 -20 0"></a-camera>
@@ -142,7 +179,7 @@
 
 <!-- RIGHT FLOWER BUNCH -->
 <a-entity
-    id=""rightFlowerCluster"
+    id="rightFlowerCluster"
     position="1500 -25 -1"
     rotation="0 0 0">
 
@@ -153,6 +190,16 @@
         scale="28 28 28">
     </a-entity>
 
+</a-entity>
+  
+<!-- CRYSTAL FLOWER — INDEPENDENT FROM LOTUS GROUP -->
+<a-entity
+  id="crystalFlowerIndependent"
+  gltf-model="#bbFlowerModel"
+  apply-crystal-texture
+  position="-2 -30 -15"
+  rotation="0 28 0"
+  scale="150 150 150">
 </a-entity>
 
   <a-entity
