@@ -40,8 +40,43 @@
         });
       }
     });
+    AFRAME.registerComponent("apply-crystal-texture", {
+  init: function () {
+    const el = this.el;
+
+    el.addEventListener("model-loaded", function () {
+
+      const texture = new THREE.TextureLoader().load(
+        "assets/images/crystaltexture.png"
+      );
+
+      texture.flipY = false;
+
+      el.object3D.traverse(function (node) {
+
+        if (node.isMesh) {
+
+          node.material = new THREE.MeshStandardMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0.85,
+            roughness: 0.08,
+            metalness: 0.12
+          });
+
+          node.material.needsUpdate = true;
+
+        }
+
+      });
+
+    });
+
+  }
+});
   </script>
 </head>
+
 
 <body style="margin: 0; overflow: hidden;">
 
@@ -68,7 +103,12 @@
       playsinline
       webkit-playsinline>
     </video>
+<img id="crystalTexture" src="assets/images/crystaltexture.png">
 
+<a-asset-item
+    id="bbFlower"
+    src="assets/models/bb01.glb">
+</a-asset-item>
     <video
       id="animatedVideo"
       src="assets/videos/animatednew.mp4"
@@ -203,6 +243,17 @@
   position="35 -34.5 -55"
   rotation="0 0 0"
   scale="310 310 310">
+</a-entity>
+
+    <!-- CRYSTAL FLOWER -->
+
+<a-entity
+    id="crystalFlower"
+    gltf-model="#bbFlower"
+    apply-crystal-texture
+    position="-2 -31 -12"
+    rotation="0 28 0"
+    scale="150 150 150">
 </a-entity>
 
 
