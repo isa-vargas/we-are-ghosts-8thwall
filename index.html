@@ -191,17 +191,23 @@
     </a-entity>
 
 </a-entity>
-  
-<!-- CRYSTAL FLOWER — INDEPENDENT FROM LOTUS GROUP -->
-<a-entity
-  id="crystalFlowerIndependent"
-  gltf-model="#bbFlowerModel"
-  apply-crystal-texture
-  position="-2 -63 -6"
-  rotation="0 -0.2 0"
-  scale="90 90 90">
-</a-entity>
 
+  <!-- CRYSTAL FLOWER: INDEPENDENT POSITIONING CONTAINER -->
+<a-entity
+  id="crystalFlowerPosition"
+  position="-2 -63 -9"
+  rotation="0 28 0">
+
+  <a-entity
+    id="crystalFlower"
+    gltf-model="#bbFlowerModel"
+    apply-crystal-texture
+    position="0 0 0"
+    rotation="0 0 0"
+    scale="90 90 90">
+  </a-entity>
+
+</a-entity>
   <a-entity
   id="lotusPosition"
   position="-20 -33 -30"
