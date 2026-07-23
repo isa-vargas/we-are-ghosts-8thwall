@@ -56,6 +56,7 @@
     <img id="waterTwo" src="assets/images/water-2.jpg">
     <img id="glassTexture" src="assets/images/glass.png">
     <img id="patternTexture" src="assets/images/pattern.jpeg">
+    <img id="crystalTexture" src="assets/images/crystaltexture.png">
 
     <video
       id="interviewVideo"
@@ -87,6 +88,7 @@
     id="bellGroup"
     src="assets/models/bellgroup.glb">
 </a-asset-item>
+
 
     <a-asset-item
       id="flowerModel"
@@ -129,7 +131,8 @@
   <!-- INDEPENDENT BELL FLOWER GROUP TEST -->
 <a-entity
     id="bellGroupTest"
-    gltf-model="#bellGroup"
+  gltf-model="#bellGroup"
+apply-crystal-texture
     position="0 -25 -15"
     rotation="0 0 0"
     scale="50 50 50">
@@ -336,6 +339,53 @@ window.addEventListener("load", () => {
     startVideos,
     { once: true }
   );
+});
+  AFRAME.registerComponent("apply-crystal-texture", {
+  init: function () {
+    const el = this.el;
+
+    el.addEventListener("model-loaded", function () {
+
+      const texture = new THREE.TextureLoader().load(
+        "assets/images/crystaltexture.png"
+      );
+
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set(1, 1);
+
+      el.object3D.traverse(function (node) {
+
+        if (!node.isMesh) return;
+
+        node.material = new THREE.MeshPhysicalMaterial({
+          map: texture,
+
+          transmission: 0.95,
+          transparent: true,
+          opacity: 0.9,
+
+          roughness: 0.02,
+          metalness: 0,
+
+          thickness: 1.2,
+
+          ior: 1.45,
+
+          clearcoat: 1,
+          clearcoatRoughness: 0.03,
+
+          envMapIntensity: 2.5,
+
+          side: THREE.DoubleSide
+        });
+
+        node.material.needsUpdate = true;
+
+      });
+
+    });
+  }
 });
 </script>
 
