@@ -88,7 +88,10 @@
     id="bellGroup"
     src="assets/models/bellgroup.glb">
 </a-asset-item>
-
+<a-asset-item
+    id="oneTextModel"
+    src="assets/models/onetext.glb">
+</a-asset-item>
 
     <a-asset-item
       id="flowerModel"
@@ -136,6 +139,17 @@ apply-crystal-texture
     position="4 -35 -75"
     rotation="0 0 0"
     scale="90 90 90">
+</a-entity>
+  
+  <!-- CLOUDY GLASS SCULPTURE -->
+
+<a-entity
+    id="oneText"
+    gltf-model="#oneTextModel"
+    apply-cloud-crystal
+    position="0 -20 -12"
+    rotation="0 0 0"
+    scale="10 10 10">
 </a-entity>
 
   <!-- FLOWER MODELS ARRANGED AROUND THE VIDEOS -->
@@ -385,6 +399,59 @@ window.addEventListener("load", () => {
       });
 
     });
+  }
+});
+AFRAME.registerComponent("apply-cloud-crystal", {
+  init: function () {
+    const el = this.el;
+
+    el.addEventListener("model-loaded", function () {
+
+      const texture = new THREE.TextureLoader().load(
+        "assets/images/crystaltexture.png"
+      );
+
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+
+      el.object3D.traverse(function (node) {
+
+        if (!node.isMesh) return;
+
+        node.material = new THREE.MeshPhysicalMaterial({
+
+          map: texture,
+
+          color: "#dcefff",
+
+          transmission: 0.72,
+
+          transparent: true,
+          opacity: 0.92,
+
+          roughness: 0.45,
+
+          metalness: 0,
+
+          thickness: 2.2,
+
+          ior: 1.42,
+
+          clearcoat: 0.35,
+          clearcoatRoughness: 0.55,
+
+          envMapIntensity: 0.8,
+
+          side: THREE.DoubleSide
+
+        });
+
+        node.material.needsUpdate = true;
+
+      });
+
+    });
+
   }
 });
 </script>
